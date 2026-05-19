@@ -1,406 +1,971 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Directorio de Emergencias - Cubarral Meta</title>
+
+  <!-- SEO -->
+  <title>Directorio de Emergencias de Cubarral Meta</title>
+
+  <meta name="description"
+    content="Directorio digital de emergencias de Cubarral Meta. Accede rápidamente a Bomberos, Policía, Hospital y organismos de socorro." />
+
+  <meta name="theme-color" content="#b30000">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Directorio de Emergencias de Cubarral Meta">
+  <meta property="og:description"
+    content="Accede rápidamente a líneas de emergencia y organismos de socorro de Cubarral Meta.">
+  <meta property="og:image" content="preview.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom, #eef2f7, #f8fafc);
-      animation: fadeIn 0.7s ease;
-      overflow-x: hidden;
-      color: #1f2937;
-      min-height: 100vh;
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f3f6fb;
+      color:#1f2937;
+      overflow-x:hidden;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0px);
-      }
+    html{
+      scroll-behavior:smooth;
     }
 
-    .hero {
-      background: linear-gradient(135deg, #b30000, #ff3d3d);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      border-bottom-left-radius: 28px;
-      border-bottom-right-radius: 28px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    /* HERO */
+
+    .hero{
+
+      background:
+      linear-gradient(
+      rgba(120,0,0,0.82),
+      rgba(179,0,0,0.88)
+      ),
+      url('herocubarral.jpg');
+
+      background-size:cover;
+      background-position:center;
+
+      color:white;
+      padding:55px 20px;
+      text-align:center;
+
+      border-bottom-left-radius:30px;
+      border-bottom-right-radius:30px;
+
+      box-shadow:0 10px 30px rgba(0,0,0,0.18);
+
     }
 
-    .hero img {
-      width: 90px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 50%;
-      background: white;
-      padding: 8px;
-      margin-bottom: 15px;
+    .hero-logo{
+      width:100px;
+      height:100px;
+      object-fit:contain;
+      background:white;
+      border-radius:50%;
+      padding:10px;
+      margin-bottom:18px;
+
+      box-shadow:0 8px 18px rgba(0,0,0,0.22);
     }
 
-    .hero h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
+    .hero h1{
+      font-size:2.2rem;
+      font-weight:700;
+      margin-bottom:12px;
     }
 
-    .hero p {
-      opacity: 0.97;
-      font-size: 0.95rem;
-      max-width: 500px;
-      margin: auto;
-      line-height: 1.5;
+    .hero p{
+      max-width:650px;
+      margin:auto;
+      line-height:1.7;
+      opacity:0.96;
+      font-size:0.98rem;
     }
 
-    .urgent-button {
-      display: inline-block;
-      margin-top: 22px;
-      background: white;
-      color: #b30000;
-      text-decoration: none;
-      padding: 15px 24px;
-      border-radius: 18px;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: 0.3s ease;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    .hero-buttons{
+      margin-top:25px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
     }
 
-    .urgent-button:hover {
-      transform: scale(1.03);
+    .hero-btn{
+      text-decoration:none;
+      padding:14px 24px;
+      border-radius:16px;
+      font-weight:600;
+
+      display:flex;
+      align-items:center;
+      gap:8px;
+
+      transition:0.3s ease;
+
+      box-shadow:0 6px 16px rgba(0,0,0,0.18);
     }
 
-    .container {
-      max-width: 900px;
-      margin: 35px auto;
-      padding: 0 18px;
+    .btn-123{
+      background:white;
+      color:#b30000;
     }
 
-    .section-title {
-      margin-bottom: 18px;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #111827;
+    .hero-btn:hover{
+      transform:translateY(-2px) scale(1.02);
     }
 
-    .card {
-      background: white;
-      border-radius: 22px;
-      padding: 24px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      align-items: center;
-      text-align: center;
-      margin-bottom: 18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: 0.3s ease;
+    /* ETIQUETA */
+
+    .status-bar{
+      margin-top:22px;
+      display:flex;
+      justify-content:center;
     }
 
-    .card:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    .status-item{
+      background:rgba(255,255,255,0.14);
+      padding:10px 18px;
+      border-radius:14px;
+      backdrop-filter:blur(6px);
+
+      font-size:0.92rem;
+      font-weight:500;
     }
 
-    .logo {
-      width: 78px;
-      height: 72px;
-      border-radius: 18px;
-      object-fit: contain;
-      background: #f3f4f6;
-      padding: 10px;
+    /* CONTENEDOR */
+
+    .container{
+      max-width:900px;
+      margin:35px auto;
+      padding:0 18px;
     }
 
-    .card-info {
-      flex: 1;
-      width: 100%;
-      text-align: center;
+    /* BUSCADOR */
+
+    .search-box{
+      margin-bottom:28px;
     }
 
-    .card-info h2 {
-      font-size: 1.15rem;
-      margin-bottom: 6px;
-      color: #111827;
+    .search-box input{
+
+      width:100%;
+      padding:16px;
+
+      border:none;
+      border-radius:18px;
+
+      font-size:1rem;
+
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+
+      outline:none;
     }
 
-    .number {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #374151;
-      margin-bottom: 6px;
+    /* TITULO */
+
+    .section-title{
+      text-align:center;
+      margin-bottom:28px;
+
+      font-size:1.45rem;
+      font-weight:700;
+
+      color:#111827;
     }
 
-    .description {
-      font-size: 0.9rem;
-      color: #6b7280;
-      line-height: 1.4;
+    /* CARDS */
+
+    .card{
+
+      background:white;
+
+      border-radius:24px;
+
+      padding:24px 20px;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+
+      gap:14px;
+
+      margin-bottom:18px;
+
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+
+      transition:0.3s ease;
+
+      animation:fadeUp 0.5s ease;
     }
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 16px;
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 14px 28px rgba(0,0,0,0.12);
     }
 
-    .btn {
-      text-decoration: none;
-      min-width: 130px;
-      padding: 11px 16px;
-      border-radius: 14px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
+    @keyframes fadeUp{
 
-    .call {
-      background: #16a34a;
-      color: white;
-    }
-
-    .save {
-      background: #2563eb;
-      color: white;
-    }
-
-    .map {
-      background: #ea580c;
-      color: white;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-      transform: scale(1.02);
-    }
-
-    .tips {
-      margin-top: 40px;
-      text-align: center;
-      background: white;
-      border-radius: 22px;
-      padding: 24px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-
-    .tips h3 {
-      margin-bottom: 12px;
-      color: #111827;
-    }
-
-    .tips ul {
-      list-style: none;
-      padding-left: 0;
-      color: #4b5563;
-      line-height: 1.8;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 15px;
-      color: #6b7280;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 700px) {
-      .card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+      from{
+        opacity:0;
+        transform:translateY(10px);
       }
 
-      .logo {
-        width: 65px;
-        height: 65px;
+      to{
+        opacity:1;
+        transform:translateY(0);
       }
 
-      .hero h1 {
-        font-size: 1.6rem;
-      }
-
-      .urgent-button {
-        width: 100%;
-      }
     }
+
+    .logo{
+      width:82px;
+      height:82px;
+
+      object-fit:contain;
+
+      border-radius:20px;
+
+      background:#f3f4f6;
+
+      padding:10px;
+    }
+
+    .card-info{
+      width:100%;
+    }
+
+    .card-info h2{
+      font-size:1.2rem;
+      margin-bottom:6px;
+      color:#111827;
+    }
+
+    .number{
+      font-weight:600;
+      color:#374151;
+      margin-bottom:10px;
+    }
+
+    .description{
+      font-size:0.92rem;
+      color:#6b7280;
+      line-height:1.5;
+    }
+
+    /* BOTONES */
+
+    .buttons{
+
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+
+      gap:10px;
+
+      margin-top:16px;
+    }
+
+    .btn{
+
+      text-decoration:none;
+
+      padding:11px 16px;
+
+      border-radius:14px;
+
+      font-size:0.92rem;
+      font-weight:600;
+
+      display:flex;
+      align-items:center;
+      gap:7px;
+
+      transition:0.3s ease;
+    }
+
+    .btn:hover{
+      transform:scale(1.03);
+    }
+
+    .call{
+      background:#16a34a;
+      color:white;
+    }
+
+    .map{
+      background:#ea580c;
+      color:white;
+    }
+
+    .copy{
+      background:#2563eb;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    /* RECOMENDACIONES */
+
+    .tips{
+
+      margin-top:40px;
+
+      background:white;
+
+      border-radius:24px;
+
+      padding:28px;
+
+      text-align:center;
+
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .tips h3{
+      margin-bottom:14px;
+      color:#111827;
+    }
+
+    .tips ul{
+      list-style:none;
+      line-height:2;
+      color:#4b5563;
+    }
+
+    /* FOOTER */
+
+    footer{
+      text-align:center;
+      padding:35px 20px;
+
+      color:#6b7280;
+      font-size:0.9rem;
+    }
+
+    /* BOTON FLOTANTE */
+
+    .floating-emergency{
+
+      position:fixed;
+
+      bottom:20px;
+      right:20px;
+
+      width:65px;
+      height:65px;
+
+      background:#dc2626;
+      color:white;
+
+      border-radius:50%;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      font-size:1.4rem;
+
+      text-decoration:none;
+
+      box-shadow:0 10px 25px rgba(0,0,0,0.25);
+
+      z-index:999;
+
+      transition:0.3s ease;
+    }
+
+    .floating-emergency:hover{
+      transform:scale(1.08);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:1.7rem;
+      }
+
+      .hero{
+        padding:45px 18px;
+      }
+
+    }
+
   </style>
+
 </head>
+
 <body>
+
+  <!-- BOTON FLOTANTE -->
+
+  <a href="tel:123"
+    class="floating-emergency"
+    aria-label="Llamar al 123">
+
+    <i class="fa-solid fa-phone"></i>
+
+  </a>
+
+  <!-- HERO -->
 
   <header class="hero">
 
-    <h1>Directorio de Emergencias - Cubarral Meta</h1>
+    <img
+      src="logobomberos.png"
+      alt="Logo Bomberos"
+      class="hero-logo">
+
+    <h1>
+      Directorio de Emergencias de Cubarral Meta
+    </h1>
+
     <p>
-      Accede rápidamente a líneas de emergencia y apoyo en Cubarral, Meta.<br>
-      Iniciativa del Cuerpo de Bomberos Voluntarios de Cubarral Meta.
+      Accede rápidamente a líneas de emergencia y organismos de socorro
+      del municipio de Cubarral, Meta.
+      Una iniciativa comunitaria del Cuerpo de Bomberos Voluntarios de Cubarral orientada al fortalecimiento de la atención inmediata y la respuesta ante emergencias.
     </p>
 
-    <a href="tel:123" class="urgent-button">
-      🚨 Llamar al 123
-    </a>
+    <div class="hero-buttons">
+
+      <a href="tel:123" class="hero-btn btn-123">
+
+        <i class="fa-solid fa-phone"></i>
+
+        Llamar al 123
+
+      </a>
+
+    </div>
+
+    <!-- ETIQUETA -->
+
+    <div class="status-bar">
+
+      <div class="status-item">
+        🕒 Disponible 24/7
+      </div>
+
+    </div>
+
   </header>
+
+  <!-- CONTENIDO -->
 
   <main class="container">
 
-    <h2 class="section-title" style="text-align:center; margin-bottom:25px;">Organismos de Emergencia</h2>
+    <!-- BUSCADOR -->
 
-    <!-- Bomberos Voluntarios de Cubarral -->
+    <div class="search-box">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="🔎 Buscar organismo o entidad..."
+      >
+
+    </div>
+
+    <h2 class="section-title">
+      Líneas y Organismos de Emergencia
+    </h2>
+
+    <!-- BOMBEROS -->
+
     <div class="card">
-      <img class="logo" src="logobomberos.png" alt="Bomberos" />
+
+      <img
+        class="logo"
+        src="logobomberos.png"
+        alt="Bomberos"
+        loading="lazy"
+      >
 
       <div class="card-info">
+
         <h2>Bomberos Voluntarios de Cubarral</h2>
-        <div class="number">📞 302 7270281</div>
+
+        <div class="number">
+          <i class="fa-solid fa-phone"></i>
+          302 727 0281
+        </div>
+
+        <div class="description">
+          Atención de incendios, rescates, emergencias y gestión del riesgo.
+        </div>
 
         <div class="buttons">
-          <a class="btn call" href="tel:+573027270281">📞 Llamar</a>
 
-          <a class="btn map" target="_blank" href="https://maps.google.com/?q=Bomberos+Cubarral+Meta">
-            📍 Ubicación
+          <a class="btn call"
+            href="tel:+573027270281">
+
+            <i class="fa-solid fa-phone"></i>
+            Llamar
+
           </a>
+
+          <a class="btn map"
+            target="_blank"
+            href="https://maps.google.com/?q=Bomberos+Cubarral+Meta">
+
+            <i class="fa-solid fa-location-dot"></i>
+            Ubicación
+
+          </a>
+
+          <button
+            class="btn copy"
+            onclick="copyNumber('3027270281')">
+
+            <i class="fa-solid fa-copy"></i>
+            Copiar
+
+          </button>
+
         </div>
+
       </div>
+
     </div>
 
-    <!-- Policía Nacional -->
+    <!-- POLICIA -->
+
     <div class="card">
-      <img class="logo" src="logopolicia.png" alt="Policía" />
+
+      <img
+        class="logo"
+        src="logopolicia.png"
+        alt="Policía"
+        loading="lazy"
+      >
 
       <div class="card-info">
+
         <h2>Policía Nacional</h2>
-        <div class="number">📞 314 281 0396</div>
+
+        <div class="number">
+          <i class="fa-solid fa-phone"></i>
+          320 461 1810
+        </div>
+
+        <div class="description">
+          Seguridad ciudadana y atención de situaciones de orden público.
+        </div>
 
         <div class="buttons">
-          <a class="btn call" href="tel:+573142810396">📞 Llamar</a>
 
-          <a class="btn map" target="_blank" href="https://maps.google.com/?q=Policia+Cubarral+Meta">
-            📍 Ubicación
+          <a class="btn call"
+            href="tel:+573204611810">
+
+            <i class="fa-solid fa-phone"></i>
+            Llamar
+
           </a>
+
+          <a class="btn map"
+            target="_blank"
+            href="https://maps.google.com/?q=Policia+Cubarral+Meta">
+
+            <i class="fa-solid fa-location-dot"></i>
+            Ubicación
+
+          </a>
+
+          <button
+            class="btn copy"
+            onclick="copyNumber('3204611810')">
+
+            <i class="fa-solid fa-copy"></i>
+            Copiar
+
+          </button>
+
         </div>
+
       </div>
+
     </div>
 
-    <!-- Hospital Local -->
+    <!-- HOSPITAL -->
+
     <div class="card">
-      <img class="logo" src="logohospital.png" alt="Hospital" />
+
+      <img
+        class="logo"
+        src="logohospital.png"
+        alt="Hospital"
+        loading="lazy"
+      >
 
       <div class="card-info">
+
         <h2>Hospital Local</h2>
-        <div class="number">📞 320 345 1723</div>
+
+        <div class="number">
+          <i class="fa-solid fa-phone"></i>
+          320 345 1723
+        </div>
+
+        <div class="description">
+          Atención médica y urgencias hospitalarias del municipio.
+        </div>
 
         <div class="buttons">
-          <a class="btn call" href="tel:+573203451723">📞 Llamar</a>
 
-          <a class="btn map" target="_blank" href="https://maps.google.com/?q=Hospital+Cubarral+Meta">
-            📍 Ubicación
+          <a class="btn call"
+            href="tel:+573203451723">
+
+            <i class="fa-solid fa-phone"></i>
+            Llamar
+
           </a>
+
+          <a class="btn map"
+            target="_blank"
+            href="https://maps.google.com/?q=Hospital+Cubarral+Meta">
+
+            <i class="fa-solid fa-location-dot"></i>
+            Ubicación
+
+          </a>
+
+          <button
+            class="btn copy"
+            onclick="copyNumber('3203451723')">
+
+            <i class="fa-solid fa-copy"></i>
+            Copiar
+
+          </button>
+
         </div>
+
       </div>
+
     </div>
 
-    <!-- Defensa Civil -->
+    <!-- DEFENSA CIVIL -->
+
     <div class="card">
-      <img class="logo" src="logodefensacivil.png" alt="Defensa Civil" />
+
+      <img
+        class="logo"
+        src="logodefensacivil.png"
+        alt="Defensa Civil"
+        loading="lazy"
+      >
 
       <div class="card-info">
+
         <h2>Defensa Civil</h2>
-        <div class="number">📞 311 4992357</div>
-        
+
+        <div class="number">
+          <i class="fa-solid fa-phone"></i>
+          311 499 2357
+        </div>
+
+        <div class="description">
+          Atención humanitaria, apoyo en emergencias y gestión del riesgo.
+        </div>
 
         <div class="buttons">
-          <a class="btn call" href="tel:+573114992357">📞 Llamar</a>
-            
+
+          <a class="btn call"
+            href="tel:+573114992357">
+
+            <i class="fa-solid fa-phone"></i>
+            Llamar
+
           </a>
+
+          <button
+            class="btn copy"
+            onclick="copyNumber('3114992357')">
+
+            <i class="fa-solid fa-copy"></i>
+            Copiar
+
+          </button>
+
         </div>
+
       </div>
-      </div>
+
     </div>
 
-    <!-- Batallón N°7 -->
+    <!-- BITER 7 -->
+
     <div class="card">
-      <img class="logo" src="logobiter7.png" alt="Biter 7" />
+
+      <img
+        class="logo"
+        src="logobiter7.png"
+        alt="Biter 7"
+        loading="lazy"
+      >
 
       <div class="card-info">
+
         <h2>Biter N°7</h2>
-        <div class="number">📞 314 3255099</div>
+
+        <div class="number">
+          <i class="fa-solid fa-phone"></i>
+          314 325 5099
+        </div>
+
+        <div class="description">
+          Apoyo institucional y atención de situaciones especiales.
+        </div>
 
         <div class="buttons">
-          <a class="btn call" href="tel:+57 3143255099">📞 Llamar</a>
-          <a class="btn map" target="_blank" href="https://maps.app.goo.gl/8JbhGAe1p146J4Wo7">
-            📍 Ubicación
+
+          <a class="btn call"
+            href="tel:+573143255099">
+
+            <i class="fa-solid fa-phone"></i>
+            Llamar
+
           </a>
+
+          <a class="btn map"
+            target="_blank"
+            href="https://maps.app.goo.gl/8JbhGAe1p146J4Wo7">
+
+            <i class="fa-solid fa-location-dot"></i>
+            Ubicación
+
+          </a>
+
+          <button
+            class="btn copy"
+            onclick="copyNumber('3143255099')">
+
+            <i class="fa-solid fa-copy"></i>
+            Copiar
+
+          </button>
+
         </div>
+
       </div>
+
     </div>
 
-    <!-- Llano Gas -->
+    <!-- LLANO GAS -->
+
     <div class="card">
-      <img class="logo" src="logollanogas.png" alt="Llano Gas" />
+
+      <img
+        class="logo"
+        src="logollanogas.png"
+        alt="Llano Gas"
+        loading="lazy"
+      >
 
       <div class="card-info">
+
         <h2>Llano Gas</h2>
-        <div class="number">📞 321 4400957</div>
+
+        <div class="number">
+          <i class="fa-solid fa-phone"></i>
+          321 440 0957
+        </div>
+
+        <div class="description">
+          Reporte y atención de emergencias relacionadas con gas domiciliario.
+        </div>
 
         <div class="buttons">
-          <a class="btn call" href="tel:+573214400957">📞 Llamar</a>
-          <a class="btn map" target="_blank" href="https://maps.app.goo.gl/v4p1GgM9LpTAhm616">
-            📍 Ubicación
+
+          <a class="btn call"
+            href="tel:+573214400957">
+
+            <i class="fa-solid fa-phone"></i>
+            Llamar
+
           </a>
+
+          <a class="btn map"
+            target="_blank"
+            href="https://maps.app.goo.gl/v4p1GgM9LpTAhm616">
+
+            <i class="fa-solid fa-location-dot"></i>
+            Ubicación
+
+          </a>
+
+          <button
+            class="btn copy"
+            onclick="copyNumber('3214400957')">
+
+            <i class="fa-solid fa-copy"></i>
+            Copiar
+
+          </button>
+
         </div>
+
       </div>
+
     </div>
 
     <!-- EMSA -->
+
     <div class="card">
-      <img class="logo" src="logoemsa.png" alt="EMSA" />
+
+      <img
+        class="logo"
+        src="logoemsa.png"
+        alt="EMSA"
+        loading="lazy"
+      >
 
       <div class="card-info">
+
         <h2>EMSA</h2>
-        <div class="number">📞 316 0278035</div>
+
+        <div class="number">
+          <i class="fa-solid fa-phone"></i>
+          316 027 8035
+        </div>
+
+        <div class="description">
+          Atención de incidentes y fallas relacionadas con energía eléctrica.
+        </div>
 
         <div class="buttons">
-          <a class="btn call" href="tel:+573160278035">📞 Llamar</a>
+
+          <a class="btn call"
+            href="tel:+573160278035">
+
+            <i class="fa-solid fa-phone"></i>
+            Llamar
+
+          </a>
+
+          <button
+            class="btn copy"
+            onclick="copyNumber('3160278035')">
+
+            <i class="fa-solid fa-copy"></i>
+            Copiar
+
+          </button>
+
         </div>
+
       </div>
+
     </div>
 
+    <!-- RECOMENDACIONES -->
+
     <section class="tips">
-      <h3>⚠️ Recomendaciones en caso de emergencia</h3>
+
+      <h3>
+        ⚠️ Recomendaciones en caso de emergencia
+      </h3>
 
       <ul>
-        <li>Mantén la calma y habla claramente.</li>
-        <li>Comparte tu ubicación exacta.</li>
-        <li>Describe lo sucedido de forma breve.</li>
-        <li>No difundas información falsa.</li>
-        <li>Permite el acceso de organismos de socorro.</li>
+
+        <li>✅ Mantén la calma y habla claramente.</li>
+
+        <li>✅ Comparte tu ubicación exacta.</li>
+
+        <li>✅ Describe brevemente lo sucedido.</li>
+
+        <li>✅ No difundas información falsa.</li>
+
+        <li>✅ Facilita el acceso de organismos de socorro.</li>
+
       </ul>
+
     </section>
 
   </main>
 
+  <!-- FOOTER -->
+
   <footer>
-    Directorio Digital de Emergencias · Cubarral Meta<br>
-    Una iniciativa comunitaria del Cuerpo de Bomberos Voluntarios de Cubarral Meta.
+
+    Directorio Digital de Emergencias · Cubarral Meta
+    <br>
+
+    Última actualización Mayo 2026
+    <br>
+
+    Una iniciativa comunitaria del
+    Cuerpo de Bomberos Voluntarios de Cubarral Meta.
+
   </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // BUSCADOR
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    searchInput.addEventListener("keyup", function(){
+
+      const filter =
+        searchInput.value.toLowerCase();
+
+      const cards =
+        document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+
+        const text =
+          card.innerText.toLowerCase();
+
+        card.style.display =
+          text.includes(filter)
+          ? "flex"
+          : "none";
+
+      });
+
+    });
+
+    // COPIAR NUMERO
+
+    function copyNumber(number){
+
+      navigator.clipboard.writeText(number);
+
+      alert("Número copiado: " + number);
+
+    }
+
+  </script>
 
 </body>
 </html>
