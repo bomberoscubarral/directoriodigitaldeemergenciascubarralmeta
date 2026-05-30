@@ -23,6 +23,13 @@
     name="theme-color"
     content="#b30000">
 
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Emergencias">
+
   <!-- OPEN GRAPH -->
 
   <meta
@@ -1406,6 +1413,17 @@
 
       </a>
 
+      <button
+        id="installBtn"
+        class="hero-btn btn-directory"
+        style="display:none; cursor:pointer; border:none;">
+
+        <i class="fa-solid fa-download"></i>
+
+        Instalar Directorio
+
+      </button>
+
     </div>
 
     <div class="status-bar">
@@ -2080,6 +2098,106 @@
       );
 
     }
+
+
+    // ============================
+    // PWA / INSTALAR APP
+    // ============================
+
+    let deferredPrompt;
+
+    const installBtn =
+      document.getElementById("installBtn");
+
+    // REGISTRAR SERVICE WORKER
+
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener("load", () => {
+
+        navigator.serviceWorker
+          .register("./sw.js")
+
+          .then(() => {
+
+            console.log(
+              "Service Worker registrado"
+            );
+
+          })
+
+          .catch(error => {
+
+            console.log(
+              "Error Service Worker:",
+              error
+            );
+
+          });
+
+      });
+
+    }
+
+    // DETECTAR INSTALACION
+
+    window.addEventListener(
+      "beforeinstallprompt",
+      (e) => {
+
+        e.preventDefault();
+
+        deferredPrompt = e;
+
+        installBtn.style.display =
+          "flex";
+
+      }
+    );
+
+    // INSTALAR
+
+    installBtn.addEventListener(
+      "click",
+      async () => {
+
+        if (!deferredPrompt) return;
+
+        deferredPrompt.prompt();
+
+        const {
+
+          outcome
+
+        } = await deferredPrompt.userChoice;
+
+        if (outcome === "accepted") {
+
+          showToast(
+            "Directorio instalado correctamente"
+          );
+
+        }
+
+        deferredPrompt = null;
+
+        installBtn.style.display =
+          "none";
+
+      }
+    );
+
+    // ACTUALIZAR AUTOMATICAMENTE
+
+    navigator.serviceWorker?.addEventListener(
+      "controllerchange",
+      () => {
+
+        window.location.reload();
+
+      }
+    );
+
 
   </script>
 
